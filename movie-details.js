@@ -195,14 +195,12 @@ function renderMovieDetails(movie, cast, similarMovies) {
     `;
 }
 
-// ⭐ Rating Color Logic
 function getRatingClass(vote) {
   if (vote >= 8) return "green";
   if (vote >= 5) return "orange";
   return "red";
 }
 
-// 📋 Watchlist Functions
 function isInWatchlist(movieId) {
   const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
   return watchlist.some((movie) => movie.id === movieId);
@@ -221,16 +219,14 @@ function toggleWatchlist(movie) {
 
   localStorage.setItem("watchlist", JSON.stringify(watchlist));
 
-  // Update button text
   const watchlistBtn = document.querySelector(".watchlist-btn");
   if (watchlistBtn) {
     watchlistBtn.textContent = isInWatchlist(movie.id)
-      ? "❤️ Remove from Watchlist"
-      : "🤍 Add to Watchlist";
+      ? "Remove from Watchlist"
+      : "Add to Watchlist";
   }
 }
 
-// 🔔 Notification System
 function showNotification(message, type = "success") {
   const notification = document.createElement("div");
   notification.className = `notification ${type}`;
@@ -243,7 +239,6 @@ function showNotification(message, type = "success") {
   }, 3000);
 }
 
-// 🌀 Show loading spinner
 function showLoading() {
   movieDetails.innerHTML = `
         <div class="loading">
@@ -253,7 +248,6 @@ function showLoading() {
     `;
 }
 
-// ❌ Show error message
 function showError(message) {
   movieDetails.innerHTML = `
         <div class="error">

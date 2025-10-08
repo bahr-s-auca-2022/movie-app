@@ -1,27 +1,19 @@
-// =======================
-// 🎬 Movie App – Complete Script
-// =======================
-
-// 🌐 API Endpoints
+// API Endpoints
 const API_KEY = "3fd2be6f0c70a2a598f084ddfb75487c";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_URL = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=`;
 
-// 📌 DOM Elements
+//  DOM Elements
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const searchInput = document.getElementById("search");
 
-// 🚀 Initial Load
 document.addEventListener("DOMContentLoaded", () => {
   fetchMovies(API_URL);
 });
 
-// =======================
-// 📡 Fetch Movies
-// =======================
 async function fetchMovies(url) {
   try {
     showLoading(); // Show loading indicator
@@ -36,13 +28,10 @@ async function fetchMovies(url) {
     }
   } catch (error) {
     showError("Something went wrong. Please try again later.");
-    console.error("❌ Fetch Error:", error);
+    console.error("Fetch Error:", error);
   }
 }
 
-// =======================
-// 🎨 Render Movies
-// =======================
 function renderMovies(movies) {
   main.innerHTML = movies
     .map(({ id, title, poster_path, vote_average, overview }) => {
@@ -76,10 +65,10 @@ function renderMovies(movies) {
         /'/g,
         "\\'"
       )}')">
-                        ${isInWatchlist ? "❤️" : "🤍"}
+                        ${isInWatchlist ? "🤍" : "🤍"}
                     </button>
                     <button class="details-btn" onclick="location.href='movie-details.html?id=${id}'">
-                        👀 Details
+                        Details
                     </button>
                 </div>
                 <div class="overview">
@@ -92,18 +81,12 @@ function renderMovies(movies) {
     .join("");
 }
 
-// =======================
-// ⭐ Rating Color Logic
-// =======================
 function getRatingClass(vote) {
   if (vote >= 8) return "green";
   if (vote >= 5) return "orange";
   return "red";
 }
 
-// =======================
-// 🔍 Search Movies
-// =======================
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchTerm = searchInput.value.trim();
@@ -116,9 +99,6 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-// =======================
-// 🏷️ Category Tabs
-// =======================
 const CATEGORIES = {
   popular: `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`,
   top_rated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
@@ -126,7 +106,6 @@ const CATEGORIES = {
   now_playing: `${BASE_URL}/movie/now_playing?api_key=${API_KEY}`,
 };
 
-// Create and insert category tabs
 const categoryTabs = document.createElement("div");
 categoryTabs.className = "category-tabs";
 categoryTabs.innerHTML = `
@@ -136,32 +115,24 @@ categoryTabs.innerHTML = `
     <button class="tab" data-category="now_playing">Now Playing</button>
 `;
 
-// Insert category tabs after hero section
 const hero = document.querySelector(".hero");
 if (hero && hero.parentNode) {
   hero.parentNode.insertBefore(categoryTabs, hero.nextSibling);
 }
 
-// Add category tab functionality
 categoryTabs.addEventListener("click", (e) => {
   if (e.target.classList.contains("tab")) {
-    // Remove active class from all tabs
     document.querySelectorAll(".tab").forEach((tab) => {
       tab.classList.remove("active");
     });
 
-    // Add active class to clicked tab
     e.target.classList.add("active");
 
-    // Fetch movies for selected category
     const category = e.target.dataset.category;
     fetchMovies(CATEGORIES[category]);
   }
 });
 
-// =======================
-// 📋 Watchlist Functions
-// =======================
 function checkWatchlistStatus(movieId) {
   const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
   return watchlist.some((movie) => movie.id === movieId);
@@ -194,12 +165,10 @@ function toggleWatchlistFromHome(
 
   localStorage.setItem("watchlist", JSON.stringify(watchlist));
 
-  // Re-render movies to update watchlist buttons
   const currentMovies = document.querySelectorAll(".movie");
   currentMovies.forEach((movieEl) => {
     const watchlistBtn = movieEl.querySelector(".watchlist-btn.home");
     if (watchlistBtn) {
-      // Extract movie ID from onclick function
       const onclickText = watchlistBtn.getAttribute("onclick");
       const movieIdMatch = onclickText.match(/toggleWatchlistFromHome\((\d+)/);
       if (movieIdMatch) {
@@ -207,17 +176,13 @@ function toggleWatchlistFromHome(
         watchlistBtn.className = `watchlist-btn home ${
           checkWatchlistStatus(movieId) ? "in-watchlist" : ""
         }`;
-        watchlistBtn.innerHTML = checkWatchlistStatus(movieId) ? "❤️" : "🤍";
+        watchlistBtn.innerHTML = checkWatchlistStatus(movieId) ? "🤍" : "🤍";
       }
     }
   });
 }
 
-// =======================
-// 🔔 Notification System
-// =======================
 function showNotification(message, type = "success") {
-  // Remove existing notifications
   document.querySelectorAll(".notification").forEach((notif) => notif.remove());
 
   const notification = document.createElement("div");
@@ -229,7 +194,6 @@ function showNotification(message, type = "success") {
 
   document.body.appendChild(notification);
 
-  // Auto-remove after 3 seconds
   setTimeout(() => {
     if (notification.parentElement) {
       notification.remove();
@@ -237,11 +201,6 @@ function showNotification(message, type = "success") {
   }, 3000);
 }
 
-// =======================
-// 🛠️ Helper Functions
-// =======================
-
-// 🌀 Show loading spinner
 function showLoading() {
   main.innerHTML = `
     <div class="loading">
@@ -251,7 +210,6 @@ function showLoading() {
   `;
 }
 
-// ❌ Show error message
 function showError(message) {
   main.innerHTML = `
     <div class="error">
