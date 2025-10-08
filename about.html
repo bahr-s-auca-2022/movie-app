@@ -1,161 +1,363 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f172a",
+              secondary: "#1e293b",
+              accent: {
+                purple: "#6366f1",
+                pink: "#ec4899",
+              },
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            backgroundImage: {
+              "gradient-dark":
+                "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+    </style>
     <title>About – Movie App</title>
   </head>
-  <body>
-    <header>
-      <h1>🎬 Movie<span>App</span></h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="watchlist.html">My Watchlist</a>
-      </nav>
+  <body
+    class="font-poppins bg-gradient-dark text-white min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-primary/80 backdrop-blur-xl border-b border-white/10 px-4 py-6 lg:py-8 sm:px-6 lg:px-8"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <h1
+          class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          🎬 Movie<span
+            class="bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-transparent"
+            >App</span
+          >
+        </h1>
+        <nav class="flex gap-2 sm:gap-3 flex-wrap justify-center">
+          <a
+            href="index.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            Home
+          </a>
+          <a
+            href="about.html"
+            class="lg:px-8 px-4 py-3 sm:px-4 rounded-md bg-gradient-to-r from-accent-purple to-accent text-white border-transparent transform -translate-y-0.5 sm:text-[4px] md:text-[4px] lg:text-[16px] font-medium transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            About
+          </a>
+          <a
+            href="watchlist.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            My Watchlist
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <section class="about-hero">
-      <h2>About <span>Movie App</span></h2>
-      <p>
-        Your ultimate destination to explore, discover, and fall in love with
-        movies. Powered by TMDb API, Movie App brings the world of cinema to
-        your fingertips.
-      </p>
+    <!-- Hero Section -->
+    <section class="bg-white/5 border-b border-white/10 px-4 py-12 sm:py-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight"
+        >
+          About
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >Movie App</span
+          >
+        </h2>
+        <p
+          class="text-gray-300 text-lg sm:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+        >
+          Your ultimate destination to explore, discover, and fall in love with
+          movies. Powered by TMDb API, Movie App brings the world of cinema to
+          your fingertips.
+        </p>
+      </div>
     </section>
 
-    <main class="about-content">
-      <section class="about-section">
-        <h3>What We Do</h3>
-        <p>
-          Movie App lets you explore trending films, read overviews, check
-          ratings, and search for any movie — all in one beautiful, fast, and
-          user-friendly interface.
-        </p>
-      </section>
-
-      <section class="about-section">
-        <h3>Key Features</h3>
-        <ul class="feature-list">
-          <li>
-            <strong>Popular Movies:</strong> Stay updated with the latest hits.
-          </li>
-          <li><strong>Movie Search:</strong> Find your favorites instantly.</li>
-          <li>
-            <strong>Detailed View:</strong> See ratings, posters, and overviews.
-          </li>
-          <li>
-            <strong>Interactive UI:</strong> Hover to reveal hidden details.
-          </li>
-          <li><strong>Responsive:</strong> Enjoy the app on any device.</li>
-        </ul>
-      </section>
-
-      <section class="about-section">
-        <h3>Technology & Design</h3>
-        <p>
-          Built with <strong>HTML5</strong>, <strong>CSS3</strong>, and
-          <strong>JavaScript ES6+</strong>, the Movie App is designed with clean
-          code, responsive layouts, and accessible UI — ensuring a seamless
-          experience for every movie lover.
-        </p>
-      </section>
-
-      <section class="about-section personal-section">
-        <h3><span class="section-icon"></span>About Me</h3>
-        <div class="personal-content">
-          <p class="intro">
-            I'm a fourth-year <strong>Software Engineering</strong> student at
-            the <strong>American University of Central Asia (AUCA)</strong> with
-            a strong passion for crafting impactful digital solutions through
-            web development.
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8 sm:py-12 flex-1">
+      <div class="space-y-6 sm:space-y-8">
+        <!-- What We Do Section -->
+        <section
+          class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">What We Do</h3>
+          </div>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+            Movie App lets you explore trending films, read overviews, check
+            ratings, and search for any movie — all in one beautiful, fast, and
+            user-friendly interface designed for movie enthusiasts.
           </p>
+        </section>
 
-          <div class="skills-section">
-            <h4>Technical Expertise</h4>
-            <div class="skills-grid">
-              <div class="skill-category">
-                <span class="skill-icon"></span>
-                <strong>Frontend:</strong>
-                <span
-                  >Next.js, React.js, JavaScript, HTML5, CSS3, CSSTailwind</span
-                >
+        <!-- Key Features Section -->
+        <section
+          class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">
+              Key Features
+            </h3>
+          </div>
+          <div class="grid gap-4 sm:gap-5">
+            <div
+              class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-200"
+            >
+              <div>
+                <h4 class="font-semibold text-white text-sm sm:text-base mb-1">
+                  Popular Movies
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Stay updated with the latest hits and trending films
+                </p>
               </div>
-              <div class="skill-category">
-                <span class="skill-icon"></span>
-                <strong>Backend:</strong>
-                <span>PHP, MySQL, Node.js</span>
+            </div>
+            <div
+              class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-200"
+            >
+              <div>
+                <h4 class="font-semibold text-white text-sm sm:text-base mb-1">
+                  Movie Search
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Find your favorite movies instantly with powerful search
+                </p>
               </div>
-              <div class="skill-category">
-                <span class="skill-icon"></span>
-                <strong>Tools & Methods:</strong>
-                <span>Git, Agile Development, Responsive Design</span>
+            </div>
+            <div
+              class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-200"
+            >
+              <div>
+                <h4 class="font-semibold text-white text-sm sm:text-base mb-1">
+                  Detailed Views
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  See ratings, posters, overviews, and cast information
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-200"
+            >
+              <div>
+                <h4 class="font-semibold text-white text-sm sm:text-base mb-1">
+                  Interactive UI
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Hover effects and smooth animations for better experience
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-200"
+            >
+              <div>
+                <h4 class="font-semibold text-white text-sm sm:text-base mb-1">
+                  Fully Responsive
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Enjoy the app on any device - mobile, tablet, or desktop
+                </p>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="experience-section">
-            <h4>Experience & Leadership</h4>
-            <ul class="experience-list">
-              <li>
-                <span class="experience-icon"></span>
-                Developed dynamic web applications including this movie
-                enthusiast platform
-              </li>
-              <li>
-                <span class="experience-icon"></span>
-                Served as a coding mentor, guiding peers in software development
-                best practices
-              </li>
-              <li>
-                <span class="experience-icon"></span>
-                Led environmental initiative projects combining technology with
-                sustainability
-              </li>
-            </ul>
+        <!-- Technology Section -->
+        <section
+          class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">
+              Technology & Design
+            </h3>
           </div>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+            Built with modern web technologies including
+            <strong class="text-white">HTML5</strong>,
+            <strong class="text-white">CSS3 with Tailwind</strong>, and
+            <strong class="text-white">JavaScript ES6+</strong>. The Movie App
+            is designed with clean code, responsive layouts, and accessible UI —
+            ensuring a seamless experience for every movie lover.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div
+              class="text-center p-4 bg-white/5 rounded-xl border border-white/5"
+            >
+              <h4 class="font-semibold text-white text-sm">HTML5</h4>
+            </div>
+            <div
+              class="text-center p-4 bg-white/5 rounded-xl border border-white/5"
+            >
+              <h4 class="font-semibold text-white text-sm">Tailwind CSS</h4>
+            </div>
+            <div
+              class="text-center p-4 bg-white/5 rounded-xl border border-white/5"
+            >
+              <h4 class="font-semibold text-white text-sm">JavaScript</h4>
+            </div>
+            <div
+              class="text-center p-4 bg-white/5 rounded-xl border border-white/5"
+            >
+              <h4 class="font-semibold text-white text-sm">TMDb API</h4>
+            </div>
+          </div>
+        </section>
 
-          <div class="aspiration-section">
-            <h4>Career Vision</h4>
-            <p>
-              I aspire to contribute to
-              <strong>innovative tech solutions</strong> that make a meaningful
-              impact, while continuously expanding my expertise in full-stack
-              development and emerging technologies.
+        <section
+          class="bg-gradient-to-br from-white/10 to-accent-purple/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-accent-purple/20 hover:border-accent-purple/30 transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">About Me</h3>
+          </div>
+          <div class="space-y-4 sm:space-y-6">
+            <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+              I'm a fourth-year
+              <strong class="text-white">Software Engineering</strong> student
+              at the
+              <strong class="text-white"
+                >American University of Central Asia (AUCA)</strong
+              >
+              with a strong passion for crafting impactful digital solutions
+              through web development.
             </p>
-          </div>
-        </div>
-        <div class="personal-links">
-          <a href="[Your Portfolio URL]" class="contact-link"
-            >View My Portfolio</a
-          >
-          <a href="https://github.com/" class="contact-link">Check My GitHub</a>
-          <a href="https://www.linkedin.com/feed/" class="contact-link"
-            >Connect on LinkedIn</a
-          >
-        </div>
-      </section>
 
-      <section class="about-section">
-        <h3>Contact & Feedback</h3>
-        <p>
-          We'd love to hear from you! Share feedback, feature ideas, or bug
-          reports by emailing us at
-          <a href="mailto:bahrabbas2020@gmail.com" class="contact-link"
-            >bahrabbas2020@gmail.com</a
-          >.
-        </p>
-        <p>Happy watching and exploring!</p>
-      </section>
+            <div
+              class="bg-white/5 rounded-xl p-4 sm:p-6 border border-white/10"
+            >
+              <h4
+                class="font-semibold text-white text-lg mb-3 sm:mb-4 flex items-center gap-2"
+              >
+                Technical Expertise
+              </h4>
+              <div class="grid gap-3 sm:gap-4">
+                <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
+                  <div>
+                    <strong class="text-white text-sm">Frontend:</strong>
+                    <p class="text-gray-400 text-sm">
+                      Next.js, React.js, JavaScript, HTML5, CSS3
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
+                  <div>
+                    <strong class="text-white text-sm">Backend:</strong>
+                    <p class="text-gray-400 text-sm">PHP, MySQL, Node.js</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/5 rounded-xl p-4 sm:p-6 border border-white/10"
+            >
+              <h4
+                class="font-semibold text-white text-lg mb-3 sm:mb-4 flex items-center gap-2"
+              >
+                Experience & Leadership
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <p class="text-gray-300 text-sm sm:text-base flex-1">
+                    Developed dynamic web applications including this movie
+                    enthusiast platform
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <p class="text-gray-300 text-sm sm:text-base flex-1">
+                    Served as a coding mentor, guiding peers in software
+                    development best practices
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <p class="text-gray-300 text-sm sm:text-base flex-1">
+                    Led environmental initiative projects combining technology
+                    with sustainability
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="text-center bg-accent-purple/10 rounded-xl p-4 sm:p-6 border border-accent-purple/20"
+            >
+              <h4 class="font-semibold text-white text-lg mb-2">
+                Career Vision
+              </h4>
+              <p class="text-gray-300 text-sm sm:text-base">
+                I aspire to contribute to
+                <strong class="text-white">innovative tech solutions</strong>
+                that make a meaningful impact, while continuously expanding my
+                expertise in full-stack development and emerging technologies.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section
+          class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300"
+        >
+          <div class="flex items-center gap-3 mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">
+              Contact & Feedback
+            </h3>
+          </div>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
+            We'd love to hear from you! Share feedback, feature ideas, or bug
+            reports by emailing us at
+            <a
+              href="mailto:bahrabbas2020@gmail.com"
+              class="text-accent-purple hover:text-accent-pink font-medium transition-colors duration-200"
+            >
+              bahrabbas2020@gmail.com </a
+            >.
+          </p>
+          <p class="text-gray-300 text-base sm:text-lg">
+            Happy watching and exploring!
+          </p>
+        </section>
+      </div>
     </main>
 
-    <footer>
-      <p>© 2025 Movie App. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-white/5 border-t border-white/10 px-4 py-8 mt-auto">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Movie App. All rights reserved.
+        </p>
+      </div>
     </footer>
   </body>
 </html>

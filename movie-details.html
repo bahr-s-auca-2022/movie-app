@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f172a",
+              secondary: "#1e293b",
+              accent: {
+                purple: "#6366f1",
+                pink: "#ec4899",
+              },
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            backgroundImage: {
+              "gradient-dark":
+                "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    </style>
     <title>Movie Details – Movie App</title>
   </head>
-  <body>
-    <header>
-      <h1>🎬 Movie<span>App</span></h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="watchlist.html">My Watchlist</a>
-      </nav>
+  <body
+    class="font-poppins bg-gradient-dark text-white min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 bg-primary/80 backdrop-blur-xl border-b border-white/10 px-4 py-4 sm:px-6 lg:px-8"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <h1
+          class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          🎬 Movie<span
+            class="bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-transparent"
+            >App</span
+          >
+        </h1>
+        <nav class="flex gap-2 sm:gap-3 flex-wrap justify-center">
+          <a
+            href="index.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            Home
+          </a>
+          <a
+            href="about.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            About
+          </a>
+          <a
+            href="watchlist.html"
+            class="lg:px-8 px-4 py-3 sm:px-4 rounded-md bg-gradient-to-r from-accent-purple to-accent text-white border-transparent transform -translate-y-0.5 sm:text-[4px] md:text-[4px] lg:text-[16px] font-medium transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            My Watchlist
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <main id="movie-details">
-      <!-- Movie details will be dynamically injected here -->
+    <main id="movie-details" class="flex-1">
+      <!-- Content will be dynamically injected by movie-details.js -->
     </main>
 
-    <footer>
-      <p>© 2025 Movie App. Powered by TMDb API.</p>
+    <!-- Footer -->
+    <footer class="bg-white/5 border-t border-white/10 px-4 py-8 mt-auto">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Movie App. Powered by TMDb API.
+        </p>
+      </div>
     </footer>
 
+    <!-- External JavaScript -->
     <script src="movie-details.js"></script>
   </body>
 </html>

@@ -1,45 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f172a",
+              secondary: "#1e293b",
+              accent: {
+                purple: "#6366f1",
+                pink: "#ec4899",
+              },
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            backgroundImage: {
+              "gradient-dark":
+                "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+    </style>
     <title>Movie App – Discover & Explore Movies</title>
   </head>
-  <body>
-    <header>
-      <h1>🎬 Movie<span>App</span></h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="watchlist.html">My Watchlist</a>
-      </nav>
+  <body
+    class="font-poppins bg-gradient-dark text-white min-h-screen flex flex-col"
+  >
+    <header
+      class="sticky top-0 z-50 bg-primary/80 backdrop-blur-m border-b border-white/10 px-4 py-4 md:py-10 lg:py-8 sm:px-6 lg:px-8"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <h1
+          class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          🎬 Movie<span
+            class="bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-transparent"
+            >App</span
+          >
+        </h1>
+        <nav class="flex gap-6 sm:gap-3 flex-wrap justify-center">
+          <a
+            href="index.html"
+            class="lg:px-8 px-4 py-3 sm:px-4 rounded-md bg-gradient-to-r from-accent-purple to-accent text-white border-transparent transform -translate-y-0.5 sm:text-[4px] md:text-[4px] lg:text-[16px] font-medium transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            Home
+          </a>
+          <a
+            href="about.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            About
+          </a>
+          <a
+            href="watchlist.html"
+            class="px-4 lg:px-8 py-3 rounded-md bg-white/10-to-r from-accent-purple to-accent text-gray-300 hover:bg-gradient-to-r hover:from-accent-purple hover:to-accent-gray hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-[16px] font-medium"
+          >
+            My Watchlist
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Discover Your Next <span>Favorite Movie</span></h2>
-        <p>
+    <!-- Hero Section -->
+    <section
+      class="bg-white/5 border-b border-white/10 px-4 py-12 sm:py-16 lg:py-20"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight"
+        >
+          Discover Your Next
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >Favorite Movie</span
+          >
+        </h2>
+        <p
+          class="text-gray-300 text-lg sm:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
           Explore the world of cinema — from trending blockbusters to hidden
           gems. Search, discover, and dive into details instantly.
         </p>
 
-        <form id="form">
-          <input type="text" id="search" placeholder="Search for a movie..." />
+        <!-- Search Form -->
+        <form id="form" class="max-w-2xl mx-auto relative">
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="search"
+              placeholder="Search for a movie..."
+              class="w-full pl-12 pr-6 py-4 bg-white/10 backdrop-blur-lg border border-white/10 rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 hover:bg-white/15"
+            />
+          </div>
         </form>
       </div>
     </section>
 
-    <main id="main"></main>
+    <!-- Category Tabs -->
+    <div
+      class="top-16 z-40 bg-primary/95 backdrop-blur-xl border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-3">
+        <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+          <button
+            class="tab flex-shrink-0 px-4 py-2 rounded-full bg-gradient-to-r from-accent-purple to-accent-pink text-white border-transparent shadow-md text-sm font-medium transition-all duration-300 hover:shadow-lg"
+            data-category="popular"
+          >
+            Popular
+          </button>
+          <button
+            class="tab flex-shrink-0 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-gray-300 hover:bg-white/15 hover:border-accent-purple hover:text-white text-sm font-medium transition-all duration-300"
+            data-category="top_rated"
+          >
+            Top Rated
+          </button>
+          <button
+            class="tab flex-shrink-0 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-gray-300 hover:bg-white/15 hover:border-accent-purple hover:text-white text-sm font-medium transition-all duration-300"
+            data-category="upcoming"
+          >
+            Upcoming
+          </button>
+          <button
+            class="tab flex-shrink-0 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-gray-300 hover:bg-white/15 hover:border-accent-purple hover:text-white text-sm font-medium transition-all duration-300"
+            data-category="now_playing"
+          >
+            Now Playing
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <footer>
-      <p>© 2025 Movie App. Powered by TMDb API.</p>
+    <!-- Movies Grid -->
+    <main
+      id="main"
+      class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 flex-1"
+    >
+      <!-- Movies will be dynamically injected by script.js -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/5 border-t border-white/10 px-4 py-8 mt-auto">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Movie App. Powered by TMDb API.
+        </p>
+      </div>
     </footer>
 
+    <!-- External JavaScript Files -->
     <script src="script.js"></script>
   </body>
 </html>
