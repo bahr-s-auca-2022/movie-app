@@ -4,87 +4,158 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Movie App - About</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>About – Movie App</title>
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-        </ul>
+      <h1>🎬 Movie<span>App</span></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="watchlist.html">My Watchlist</a>
       </nav>
     </header>
 
-    <main class="about-content">
-      <h1>About Movie App</h1>
+    <section class="about-hero">
+      <h2>About <span>Movie App</span></h2>
+      <p>
+        Your ultimate destination to explore, discover, and fall in love with
+        movies. Powered by TMDb API, Movie App brings the world of cinema to
+        your fingertips.
+      </p>
+    </section>
 
-      <section class="about-intro">
+    <main class="about-content">
+      <section class="about-section">
+        <h3>What We Do</h3>
         <p>
-          Welcome to the Movie App! This application is designed to bring the
-          world of cinema to your fingertips. Discover trending movies, explore
-          detailed information including user ratings and synopses, and search
-          for your favorites anytime, anywhere.
-        </p>
-        <p>
-          Powered by The Movie Database (TMDb) API, our app ensures you have
-          access to the latest and most comprehensive movie data in a sleek and
+          Movie App lets you explore trending films, read overviews, check
+          ratings, and search for any movie — all in one beautiful, fast, and
           user-friendly interface.
         </p>
       </section>
 
-      <section class="about-features">
-        <h2>Key Features</h2>
-        <ul>
+      <section class="about-section">
+        <h3>Key Features</h3>
+        <ul class="feature-list">
           <li>
-            <strong>Popular Movies:</strong> Browse trending movies sorted by
-            popularity to keep up with what's hot.
+            <strong>Popular Movies:</strong> Stay updated with the latest hits.
+          </li>
+          <li><strong>Movie Search:</strong> Find your favorites instantly.</li>
+          <li>
+            <strong>Detailed View:</strong> See ratings, posters, and overviews.
           </li>
           <li>
-            <strong>Movie Search:</strong> Quickly search for any movie by title
-            with instant results.
+            <strong>Interactive UI:</strong> Hover to reveal hidden details.
           </li>
-          <li>
-            <strong>Detailed View:</strong> See ratings, posters, and concise
-            overviews at a glance.
-          </li>
-          <li>
-            <strong>Interactive UI:</strong> Hover over a movie poster to reveal
-            additional information instantly.
-          </li>
-          <li>
-            <strong>Responsive Design:</strong> Enjoy a seamless experience
-            across devices — desktop, tablet, and mobile.
-          </li>
+          <li><strong>Responsive:</strong> Enjoy the app on any device.</li>
         </ul>
       </section>
 
-      <section class="about-technical">
-        <h2>Technology & Design</h2>
+      <section class="about-section">
+        <h3>Technology & Design</h3>
         <p>
-          The app is built using modern web standards including
-          <strong>HTML5</strong>, <strong>CSS3</strong> with custom properties
-          for theming, and <strong>JavaScript ES6+</strong> featuring
-          asynchronous operations and dynamic DOM manipulation.
-        </p>
-        <p>
-          A clean and consistent UI influenced by contemporary design principles
-          ensures easy navigation and accessibility, while thoughtful UX
-          patterns enhance user engagement.
+          Built with <strong>HTML5</strong>, <strong>CSS3</strong>, and
+          <strong>JavaScript ES6+</strong>, the Movie App is designed with clean
+          code, responsive layouts, and accessible UI — ensuring a seamless
+          experience for every movie lover.
         </p>
       </section>
 
-      <section class="about-contact">
-        <h2>Contact & Feedback</h2>
-        <p>
-          We value your input! For suggestions, feature requests, or bug
-          reports, please reach out via email:
-          <a href="mailto:support@movieapp.com" class="contact-link"
-            >support@movieapp.com</a
+      <section class="about-section personal-section">
+        <h3><span class="section-icon"></span>About Me</h3>
+        <div class="personal-content">
+          <p class="intro">
+            I'm a fourth-year <strong>Software Engineering</strong> student at
+            the <strong>American University of Central Asia (AUCA)</strong> with
+            a strong passion for crafting impactful digital solutions through
+            web development.
+          </p>
+
+          <div class="skills-section">
+            <h4>Technical Expertise</h4>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <span class="skill-icon"></span>
+                <strong>Frontend:</strong>
+                <span
+                  >Next.js, React.js, JavaScript, HTML5, CSS3, CSSTailwind</span
+                >
+              </div>
+              <div class="skill-category">
+                <span class="skill-icon"></span>
+                <strong>Backend:</strong>
+                <span>PHP, MySQL, Node.js</span>
+              </div>
+              <div class="skill-category">
+                <span class="skill-icon"></span>
+                <strong>Tools & Methods:</strong>
+                <span>Git, Agile Development, Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-section">
+            <h4>Experience & Leadership</h4>
+            <ul class="experience-list">
+              <li>
+                <span class="experience-icon"></span>
+                Developed dynamic web applications including this movie
+                enthusiast platform
+              </li>
+              <li>
+                <span class="experience-icon"></span>
+                Served as a coding mentor, guiding peers in software development
+                best practices
+              </li>
+              <li>
+                <span class="experience-icon"></span>
+                Led environmental initiative projects combining technology with
+                sustainability
+              </li>
+            </ul>
+          </div>
+
+          <div class="aspiration-section">
+            <h4>Career Vision</h4>
+            <p>
+              I aspire to contribute to
+              <strong>innovative tech solutions</strong> that make a meaningful
+              impact, while continuously expanding my expertise in full-stack
+              development and emerging technologies.
+            </p>
+          </div>
+        </div>
+        <div class="personal-links">
+          <a href="[Your Portfolio URL]" class="contact-link"
+            >View My Portfolio</a
           >
+          <a href="https://github.com/" class="contact-link">Check My GitHub</a>
+          <a href="https://www.linkedin.com/feed/" class="contact-link"
+            >Connect on LinkedIn</a
+          >
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h3>Contact & Feedback</h3>
+        <p>
+          We'd love to hear from you! Share feedback, feature ideas, or bug
+          reports by emailing us at
+          <a href="mailto:bahrabbas2020@gmail.com" class="contact-link"
+            >bahrabbas2020@gmail.com</a
+          >.
         </p>
-        <p>Keep exploring and happy watching!</p>
+        <p>Happy watching and exploring!</p>
       </section>
     </main>
+
+    <footer>
+      <p>© 2025 Movie App. All rights reserved.</p>
+    </footer>
   </body>
 </html>

@@ -4,27 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Movie App - Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Movie App – Discover & Explore Movies</title>
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
+      <h1>🎬 Movie<span>App</span></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="watchlist.html">My Watchlist</a>
       </nav>
-      <form id="form">
-        <input
-          type="text"
-          id="search"
-          class="search"
-          placeholder="Search movies"
-        />
-      </form>
     </header>
 
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Discover Your Next <span>Favorite Movie</span></h2>
+        <p>
+          Explore the world of cinema — from trending blockbusters to hidden
+          gems. Search, discover, and dive into details instantly.
+        </p>
+
+        <form id="form">
+          <input type="text" id="search" placeholder="Search for a movie..." />
+        </form>
+      </div>
+    </section>
+
     <main id="main"></main>
+
+    <footer>
+      <p>© 2025 Movie App. Powered by TMDb API.</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
